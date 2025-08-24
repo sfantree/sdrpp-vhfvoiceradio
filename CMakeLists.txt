@@ -11,6 +11,10 @@ file(GLOB_RECURSE SRC
     "src/radio_interface.h"
     "src/demod.h"
     
+    "src/rds.cpp"
+    "src/rds.h"
+    "src/rds_demod.h"
+    
     "src/demodulators/nfm.h"
     "src/demodulators/wfm.h"
     "src/demodulators/am.h"
