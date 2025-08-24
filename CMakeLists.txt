@@ -23,6 +23,8 @@ file(GLOB_RECURSE SRC
     "src/dsp/dcs.h"
 )
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native")
+
 #find_package(ITPP REQUIRED)
 
 if (NOT SDRPP_MODULE_CMAKE)
@@ -32,5 +34,5 @@ endif ()
 include(${SDRPP_MODULE_CMAKE})
 
 #target_link_libraries(vhfvoiceradio PRIVATE fftw3 ${ITPP_LIBRARY})
-target_link_libraries(vhfvoiceradio PRIVATE fftw3)
+#target_link_libraries(vhfvoiceradio PRIVATE fftw3)
 target_include_directories(vhfvoiceradio PRIVATE "src/")
