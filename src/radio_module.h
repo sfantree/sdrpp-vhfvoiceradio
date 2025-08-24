@@ -389,11 +389,11 @@ private:
         }
         ImGui::NextColumn();
         if (ImGui::RadioButton(CONCAT("DSD##_", _this->name), _this->selectedDemodID == 1) && _this->selectedDemodID != 1) {
-            _this->selectDemodByID(RADIO_DEMOD_DSD);
+           //_this->selectDemodByID(RADIO_DEMOD_DSD);
         }
         ImGui::NextColumn();
         if (ImGui::RadioButton(CONCAT("OLD DSD##_", _this->name), _this->selectedDemodID == 2) && _this->selectedDemodID != 2) {
-            _this->selectDemodByID(RADIO_DEMOD_OLDDSD);
+            //_this->selectDemodByID(RADIO_DEMOD_OLDDSD);
         }
         ImGui::NextColumn();
         if (ImGui::RadioButton(CONCAT("WFM##_", _this->name), _this->selectedDemodID == 3) && _this->selectedDemodID != 3) {
@@ -558,8 +558,8 @@ private:
             demod::Demodulator* demod = NULL;
             switch (id) {
                 case DemodID::RADIO_DEMOD_NFM:  demod = new demod::NFM(); break;
-                case DemodID::RADIO_DEMOD_DSD:  demod = new demod::DSD(); break;
-                case DemodID::RADIO_DEMOD_OLDDSD:  demod = new demod::OldDSD(); break;
+                //case DemodID::RADIO_DEMOD_DSD:  demod = new demod::DSD(); break;
+                //case DemodID::RADIO_DEMOD_OLDDSD:  demod = new demod::OldDSD(); break;
                 case DemodID::RADIO_DEMOD_WFM:  demod = new demod::WFM(); break;
                 case DemodID::RADIO_DEMOD_AM:  demod = new demod::AM(); break;
                 case DemodID::RADIO_DEMOD_USB:  demod = new demod::USB(); break;
