@@ -37,7 +37,8 @@ namespace dsp {
 
         inline int process(int count, const float* in) {
             if (count < 0) { return -1; }
-            int8_t signs[count];
+            //int8_t signs[count];
+            int8_t* signs = new int8_t[count];
             volk_32f_binary_slicer_8i(signs, in, count);
             bool setAct = false;
             int ret;
@@ -70,6 +71,7 @@ namespace dsp {
                 }
 
             }
+            delete [] signs;
             if(setAct) {
                 isActive = true;
                 if(squelchCode == -ncode || squelchCode == pcode) {

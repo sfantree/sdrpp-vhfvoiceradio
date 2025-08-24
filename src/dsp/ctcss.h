@@ -62,7 +62,8 @@ namespace dsp {
 
         inline int process(int count, const float* in) {
             float stddev,mean,nf;
-            float fft_pwr_points[nr];
+            //float fft_pwr_points[nr];
+            float* fft_pwr_points = new float[nr];
             uint32_t maxFreq = 1;
             float maxPwr;
             int beginIndex = 33 * nSamp / 600; //begin from 33 Hz
@@ -84,6 +85,7 @@ namespace dsp {
             maxFreq+=beginIndex;
             maxPwr = fft_pwr_points[maxFreq];
             float realFreq = (600.0f * (float)maxFreq) / (float)(nSamp);
+            delete [] fft_pwr_points;
             if(maxFreq != 1 && (maxPwr - nf) >= CTCSS_SENSITIVITY ) { //PWR - noise floor >= CTCSS_SENSITIVITY dB
                     freq = realFreq;
                     if(fabs(freq - squelchFrequency) < 0.9f) {
